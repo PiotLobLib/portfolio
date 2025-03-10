@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'infos/styles.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="{% url 'home' %}" class="{% if title == 'Home' %}active{% endif %}">Home</a>
+        <a href="{% url 'me' %}" class="{% if title == 'Me' %}active{% endif %}">Me</a>
+        <a href="{% url 'contact' %}" class="{% if title == 'Contact' %}active{% endif %}">Contact</a>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>© 2025 My Portfolio</p>
+    </footer>
+</body>
+</html>
